@@ -2043,7 +2043,7 @@ textarea.form-control {
   background-color: transparent;
   border: 1px solid transparent;
   padding: 0.375rem 0.75rem;
-  font-size: 25px;
+  font-size: 1rem;
   line-height: 1.5;
   border-radius: 0.25rem;
   -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
@@ -2094,7 +2094,7 @@ fieldset:disabled a.btn {
     .show > .btn-primary.dropdown-toggle:focus {
       -webkit-box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
       box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5); }
-
+*/
 .btn-temporary {
   color: #fff;
   font-size: 35px;
@@ -2119,7 +2119,7 @@ fieldset:disabled a.btn {
     .btn-temporary:not(:disabled):not(.disabled):active:focus, .btn-temporary:not(:disabled):not(.disabled).active:focus,
     .show > .btn-temporary.dropdown-toggle:focus {
       -webkit-box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
-      box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5); }
+      box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5); } /*
 
 .btn-secondary {
   color: #fff;
@@ -8606,6 +8606,7 @@ h1, h2, h3, h4, h5,
   .btn:hover, .btn:active, .btn:focus {
     outline: none; }
   .btn.btn-primary {
+    font-size: 25px;
     background: #3e64ff;
     border: 1px solid #3e64ff !important;
     color: #fff !important; }
