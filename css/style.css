@@ -8606,7 +8606,6 @@ h1, h2, h3, h4, h5,
   .btn:hover, .btn:active, .btn:focus {
     outline: none; }
   .btn.btn-primary {
-    font-size: 25px !important;
     background: #3e64ff;
     border: 1px solid #3e64ff !important;
     color: #fff !important; }
