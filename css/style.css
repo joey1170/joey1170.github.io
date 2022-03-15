@@ -9582,6 +9582,14 @@ textarea.form-control {
       color: #000000;
       font-style: italic; }
 
+  .utterances {
+        max-width: 100%;
+   }
+
+
+
+
+
 #ftco-loader {
   position: fixed;
   width: 96px;
