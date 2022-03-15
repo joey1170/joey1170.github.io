@@ -9583,7 +9583,7 @@ textarea.form-control {
       font-style: italic; }
 
   .utterances {
-        max-width: 100%;
+        max-width: 100% !important;
    }
 
 
