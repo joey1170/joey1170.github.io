@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">	  	  
+<!-- www.check-domains.com sitemap generator -->
+
+<url>
+   <loc>https://joey1170.github.io/</loc>
+   <lastmod>2022-03-26T04:26:00+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>1.0000</priority>
+</url>
+<url>
+   <loc>https://joey1170.github.io/index.html</loc>
+   <lastmod>2022-03-26T04:26:00+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>https://joey1170.github.io/published.html</loc>
+   <lastmod>2022-03-26T04:26:00+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>https://joey1170.github.io/Table.html</loc>
+   <lastmod>2022-03-26T04:26:00+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>https://joey1170.github.io/blog-index.html</loc>
+   <lastmod>2022-03-26T04:26:00+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>https://joey1170.github.io/single.html</loc>
+   <lastmod>2022-03-26T04:26:00+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>https://joey1170.github.io/Quotes.html</loc>
+   <lastmod>2022-03-26T04:26:00+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.8000</priority>
+</url>
+<url>
+   <loc>https://joey1170.github.io/blog-contents/research-index.html</loc>
+   <lastmod>2022-03-26T04:26:00+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://joey1170.github.io/blog-contents/internship-index.html</loc>
+   <lastmod>2022-03-26T04:26:00+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://joey1170.github.io/blog-contents/articles-index.html</loc>
+   <lastmod>2022-03-26T04:26:00+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://joey1170.github.io/blog-contents/gallery-index.html</loc>
+   <lastmod>2022-03-26T04:26:00+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.6400</priority>
+</url>
+<url>
+   <loc>https://joey1170.github.io/blog-contents/gallery/gallery-content1.html</loc>
+   <lastmod>2022-03-26T04:26:00+00:00</lastmod>
+   <changefreq>monthly</changefreq>
+   <priority>0.5120</priority>
+</url>
+</urlset>
