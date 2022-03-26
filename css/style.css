@@ -3376,6 +3376,7 @@ input[type="button"].btn-block {
 .nav-tabs {
   border-bottom: 1px solid #dee2e6; }
   .nav-tabs .nav-item {
+    background-color: red;
     margin-bottom: -1px; }
   .nav-tabs .nav-link {
     border: 1px solid transparent;
@@ -3385,12 +3386,12 @@ input[type="button"].btn-block {
       border-color: #e9ecef #e9ecef #dee2e6; }
     .nav-tabs .nav-link.disabled {
       color: #6c757d;
-      background-color: white; /*tranparent */
+      background-color: transparent;
       border-color: transparent; }
   .nav-tabs .nav-link.active,
   .nav-tabs .nav-item.show .nav-link {
     color: #495057;
-    background-color: red; /* #fff */
+    background-color: #fff;
     border-color: #dee2e6 #dee2e6 #fff; }
   .nav-tabs .dropdown-menu {
     margin-top: -1px;
