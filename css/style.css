@@ -46,8 +46,16 @@ html {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
-article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+article, aside, figcaption, figure, footer, header, hgroup, main, section {
   display: block; }
+
+nav {
+  display: block;
+  background:white ;
+}
+
+
+
 
 body {
   margin: 0;
@@ -3351,7 +3359,7 @@ input[type="button"].btn-block {
     .custom-select {
       -webkit-transition: none;
       -o-transition: none;
-      transition: none; } }
+      transition: none; } } 
 
 .nav {
   display: -webkit-box;
