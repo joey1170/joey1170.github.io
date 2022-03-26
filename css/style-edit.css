@@ -8562,6 +8562,10 @@ h1, h2, h3, h4, h5,
 .bg-dark {
   background: #191919 !important; }
 
+.bg-editone {
+  background: pink !important;
+}
+
 .bg-primary {
   background: #3e64ff; }
 
