@@ -3367,7 +3367,7 @@ input[type="button"].btn-block {
   display: block;
   padding: 0.5rem 1rem; }
   .nav-link:hover, .nav-link:focus {
-    color: white;
+    color: rgb(223, 221, 221);
     text-decoration: none; }
   .nav-link.disabled {
     color:#6c757d; 
@@ -3705,7 +3705,7 @@ input[type="button"].btn-block {
     display: none; }
 
 .navbar-light .navbar-brand {
-  color: rgba(0, 0, 0, 0.9); }
+  color: rgba(255, 255, 255, 0.9); }
   .navbar-light .navbar-brand:hover, .navbar-light .navbar-brand:focus {
     color: rgba(0, 0, 0, 0.9); }
 
