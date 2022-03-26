@@ -3364,7 +3364,6 @@ input[type="button"].btn-block {
   list-style: none; }
 
 .nav-link {
-  color: red;
   display: block;
   padding: 0.5rem 1rem; }
   .nav-link:hover, .nav-link:focus {
