@@ -3367,6 +3367,7 @@ input[type="button"].btn-block {
   display: block;
   padding: 0.5rem 1rem; }
   .nav-link:hover, .nav-link:focus {
+    color: white;
     text-decoration: none; }
   .nav-link.disabled {
     color:#6c757d; 
@@ -8207,7 +8208,6 @@ h1, h2, h3, h4, h5,
     font-weight: 400;
     opacity: 1 !important; }
     .ftco-navbar-light .navbar-nav > .nav-item > .nav-link span {
-      color: #fff;
       position: relative;
       display: block;
       padding-bottom: 2px; }
