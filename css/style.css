@@ -8261,7 +8261,7 @@ h1, h2, h3, h4, h5,
     border-radius: 5px; }
     .ftco-navbar-light .navbar-nav > .nav-item.cta > a span {
       display: inline-block;
-      color: #fff; }
+      color: skyblue; } /* #fff */
     .ftco-navbar-light .navbar-nav > .nav-item.cta > a:hover {
       background: #3e64ff;
       border: 1px solid #3e64ff; }
