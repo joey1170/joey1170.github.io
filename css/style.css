@@ -51,7 +51,8 @@ article, aside, figcaption, figure, footer, header, hgroup, main, section {
 
 nav {
   display: block;
-  background:purple ;
+  background:purple;
+  background-color: green;
 }
 
 
