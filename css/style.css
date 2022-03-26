@@ -50,7 +50,6 @@ article, aside, figcaption, figure, footer, header, hgroup, main, section {
   display: block; }
 
 nav {
-  display: block;
   background-color: green;
 }
 
