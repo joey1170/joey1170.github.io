@@ -3376,7 +3376,6 @@ input[type="button"].btn-block {
 .nav-tabs {
   border-bottom: 1px solid #dee2e6; }
   .nav-tabs .nav-item {
-    background-color: red;
     margin-bottom: -1px; }
   .nav-tabs .nav-link {
     border: 1px solid transparent;
