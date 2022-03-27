@@ -8411,7 +8411,7 @@ h1, h2, h3, h4, h5,
   text-transform: uppercase;
   font-size: 16px;
   font-weight: 800;
-  color: #3e64ff;
+  color: #fff; /*#3e64ff */
   letter-spacing: 4px; }
 
 .slider-text h1 {
@@ -9210,7 +9210,7 @@ textarea.form-control {
       .heading-section h2 {
         font-size: 38px; } }
   .heading-section.heading-section-white .subheading {
-    color: rgba(0, 0, 0, 0.9) !important; } /*rgba(255, 255, 255, 0.9) !important; */
+    color: rgba(255, 255, 255, 0.9) !important; } /*rgba(255, 255, 255, 0.9) !important; */
   .heading-section.heading-section-white h2 {
     color: #fff; }
   .heading-section.heading-section-white p {
