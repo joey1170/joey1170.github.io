@@ -91,8 +91,13 @@
             </p>
             <p>Quisquam esse aliquam fuga distinctio, quidem delectus veritatis reiciendis. Nihil explicabo quod, est eos ipsum. Unde aut non tenetur tempore, nisi culpa voluptate maiores officiis quis vel ab consectetur suscipit veritatis nulla quos quia aspernatur perferendis, libero sint. Error, velit, porro. Deserunt minus, quibusdam iste enim veniam, modi rem maiores.</p>
             <script>
-              var date1 = new Date("06/30/2008");
-              var date2 = new Date();
+              var now = new Date();
+              var yaer = now.getFullYear();
+              var month = now.getMonth()+1;
+              var day = now.getDate();
+
+              var date1 = new Date(2008, 03, 21);
+              var date2 = new Date(year, month, day);
               var Difference_In_Time = date2.getTime() - date1.getTime();
               var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
               document.write(Difference_In_Days);
