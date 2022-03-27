@@ -141,6 +141,18 @@
 				<div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
 					<div class="block-18 shadow">
 						<div class="text">
+							<script>
+								var now = new Date();
+								var year = now.getFullYear();
+								var month = now.getMonth()+1;
+								var day = now.getDate();
+					
+								var date1 = new Date(2008, 03, 21);
+								var date2 = new Date(year, month, day);
+								var Difference_In_Time = date2.getTime() - date1.getTime();
+								var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+								document.write(Difference_In_Days);
+							</script>
 							<strong class="number" data-number="2879">0</strong>
 							<span>Days fell in ❤️ with Astronomy</span>
 						</div>
