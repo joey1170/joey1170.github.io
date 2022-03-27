@@ -9189,7 +9189,7 @@ textarea.form-control {
     display: block;
     margin-bottom: 5px;
     text-transform: uppercase;
-    color: black;
+    color: black; 
     letter-spacing: 3px; }
   .heading-section h1.big {
     position: absolute;
