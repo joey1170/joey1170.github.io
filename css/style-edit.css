@@ -8415,7 +8415,7 @@ h1, h2, h3, h4, h5,
   letter-spacing: 4px; }
 
 .slider-text h1 {
-  color: #3e64ff; /* None  change*/
+  color: #000000; /* None --> change  3e64ff*/
   font-size: 60px;
   font-weight: 800; }
   @media (max-width: 767.98px) {
@@ -8423,6 +8423,7 @@ h1, h2, h3, h4, h5,
       font-size: 40px; } }
 
 .slider-text h2 {
+  color: #fff; /*None --> change*/
   font-weight: 800; }
   .slider-text h2 span {
     color: #3e64ff;
@@ -8449,7 +8450,7 @@ h1, h2, h3, h4, h5,
     .slider-text .breadcrumbs span i {
       color: rgba(0, 0, 0, 0.8); }
     .slider-text .breadcrumbs span a {
-      color: #3e64ff; }
+      color: #3e64ff; } /* 여기를 #fff 로 수정하면 될 듯 */
       .slider-text .breadcrumbs span a:hover, .slider-text .breadcrumbs span a:focus {
         color: #3e64ff; }
         .slider-text .breadcrumbs span a:hover i, .slider-text .breadcrumbs span a:focus i {
