@@ -8411,10 +8411,11 @@ h1, h2, h3, h4, h5,
   text-transform: uppercase;
   font-size: 16px;
   font-weight: 800;
-  color: #fff; /*#3e64ff */
+  color: #3e64ff; /*#3e64ff change*/
   letter-spacing: 4px; }
 
 .slider-text h1 {
+  color: #fff; /* None  change*/
   font-size: 60px;
   font-weight: 800; }
   @media (max-width: 767.98px) {
