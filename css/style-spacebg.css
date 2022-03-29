@@ -8410,10 +8410,11 @@ h1, h2, h3, h4, h5,
   text-transform: uppercase;
   font-size: 16px;
   font-weight: 800;
-  color: #3e64ff;
+  color: #fff; /* 원래 #3e64ff */ 
   letter-spacing: 4px; }
 
 .slider-text h1 {
+  color: #000; /* 원래 color tag 없었음  */
   font-size: 60px;
   font-weight: 800; }
   @media (max-width: 767.98px) {
@@ -8421,6 +8422,7 @@ h1, h2, h3, h4, h5,
       font-size: 40px; } }
 
 .slider-text h2 {
+  color: #fff; /* 원래 color tag 없었음 */
   font-weight: 800; }
   .slider-text h2 span {
     color: #3e64ff;
