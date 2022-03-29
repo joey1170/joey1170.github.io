@@ -8192,7 +8192,7 @@ h1, h2, h3, h4, h5,
       color: #000000 !important; }
     @media (max-width: 991.98px) {
       .ftco-navbar-light .navbar-brand {
-        color: #fff; } }
+        color: #000000; } } /* 원래 하얀 색 이었음*/
   @media (max-width: 991.98px) {
     .ftco-navbar-light .navbar-nav {
       padding-bottom: 20px;
@@ -8245,7 +8245,7 @@ h1, h2, h3, h4, h5,
         padding-right: 0;
         padding-bottom: 1rem;
         padding-top: 0;
-        color: #000000; } } /*style.css와 유일한 차이점으로 원래 하얀색이지만 style-spacebg.css에서는 배경이 까만색이라 강제 bg-light를 사용하므로 깔끔하게 검정색 글씨로 잘보이게함 */
+        color: #000000; } } /*style.css와 두 개  차이점으로 원래 하얀색이지만 style-spacebg.css에서는 배경이 까만색이라 강제 bg-light를 사용하므로 깔끔하게 검정색 글씨로 잘보이게함 */
   .ftco-navbar-light .navbar-nav > .nav-item.cta > a {
     color: #fff;
     border: 1px solid #3e64ff;
