@@ -8192,7 +8192,7 @@ h1, h2, h3, h4, h5,
       color: #000000 !important; }
     @media (max-width: 991.98px) {
       .ftco-navbar-light .navbar-brand {
-        color: #000000; } } /* 원래 하얀 색 이었음*/
+        color: #000000; } } /* 원래 하얀 색 이었음 + 스크롤 올리면 검은색  지금은 원래 검은 색이라 스크롤 올리면 검은색 되는 거 티 안난느듯 */
   @media (max-width: 991.98px) {
     .ftco-navbar-light .navbar-nav {
       padding-bottom: 20px;
