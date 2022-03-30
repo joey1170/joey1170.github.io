@@ -1,76 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset
-      xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="https://www.sitemaps.org/schemas/sitemap/0.9
-            https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+      xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
 
-<url>
-  <loc>https://joey1170.github.io/index.html</loc>
-  <lastmod>2022-03-30T13:08:13+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://joey1170.github.io/published.html</loc>
-  <lastmod>2022-03-30T13:08:13+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://joey1170.github.io/Table.html</loc>
-  <lastmod>2022-03-30T13:08:13+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://joey1170.github.io/blog-index.html</loc>
-  <lastmod>2022-03-30T13:08:13+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://joey1170.github.io/single.html</loc>
-  <lastmod>2022-03-30T13:08:13+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://joey1170.github.io/Quotes.html</loc>
-  <lastmod>2022-03-30T13:08:13+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://joey1170.github.io/blog-contents/research-index.html</loc>
-  <lastmod>2022-03-30T13:08:13+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://joey1170.github.io/blog-contents/internship-index.html</loc>
-  <lastmod>2022-03-30T13:08:13+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://joey1170.github.io/blog-contents/articles-index.html</loc>
-  <lastmod>2022-03-30T13:08:13+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://joey1170.github.io/blog-contents/paper-review-index.html</loc>
-  <lastmod>2022-03-30T13:08:13+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://joey1170.github.io/blog-contents/gallery-index.html</loc>
-  <lastmod>2022-03-30T13:08:13+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://joey1170.github.io/blog-contents/paper-review/paper-review-content1.html</loc>
-  <lastmod>2022-03-30T13:08:13+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://joey1170.github.io/blog-contents/gallery/gallery-content1.html</loc>
-  <lastmod>2022-03-30T13:08:13+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
+  <url>
+    <loc>https://joey1170.github.io/index.html</loc>
+    <lastmod>2022-03-30T13:08:13+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://joey1170.github.io/published.html</loc>
+    <lastmod>2022-03-30T13:08:13+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://joey1170.github.io/Table.html</loc>
+    <lastmod>2022-03-30T13:08:13+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://joey1170.github.io/blog-index.html</loc>
+    <lastmod>2022-03-30T13:08:13+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://joey1170.github.io/single.html</loc>
+    <lastmod>2022-03-30T13:08:13+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://joey1170.github.io/Quotes.html</loc>
+    <lastmod>2022-03-30T13:08:13+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://joey1170.github.io/blog-contents/research-index.html</loc>
+    <lastmod>2022-03-30T13:08:13+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://joey1170.github.io/blog-contents/internship-index.html</loc>
+    <lastmod>2022-03-30T13:08:13+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://joey1170.github.io/blog-contents/articles-index.html</loc>
+    <lastmod>2022-03-30T13:08:13+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://joey1170.github.io/blog-contents/paper-review-index.html</loc>
+    <lastmod>2022-03-30T13:08:13+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://joey1170.github.io/blog-contents/gallery-index.html</loc>
+    <lastmod>2022-03-30T13:08:13+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://joey1170.github.io/blog-contents/paper-review/paper-review-content1.html</loc>
+    <lastmod>2022-03-30T13:08:13+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://joey1170.github.io/blog-contents/gallery/gallery-content1.html</loc>
+    <lastmod>2022-03-30T13:08:13+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
 
 
 </urlset>
