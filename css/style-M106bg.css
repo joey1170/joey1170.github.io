@@ -8,7 +8,7 @@
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
-  --pink: #e83e8c;
+  --pink: #e83e8c;`
   --red: #dc3545;
   --orange: #fd7e14;
   --yellow: #ffc107;
@@ -3555,7 +3555,6 @@ input[type="button"].btn-block {
       display: none; } }
 
 @media (max-width: 767.98px) {
-  background-image: url(/images/M106_opening3.jpg); /*원래 없던 것 */
   .navbar-expand-md > .container,
   .navbar-expand-md > .container-fluid {
     padding-right: 0;
@@ -3639,7 +3638,6 @@ input[type="button"].btn-block {
 
 @media (min-width: 1200px) {
   .navbar-expand-xl {
-    background-image: url(/images/M106_opening3.jpg); /*원래 없던 것 */
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -ms-flex-flow: row nowrap;
