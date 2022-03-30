@@ -3638,6 +3638,7 @@ input[type="button"].btn-block {
 
 @media (min-width: 1200px) {
   .navbar-expand-xl {
+    background-image: url(/images/M106_opening3.jpg); /*원래 없던 것 */
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -ms-flex-flow: row nowrap;
