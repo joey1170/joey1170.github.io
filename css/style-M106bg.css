@@ -3519,6 +3519,7 @@ input[type="button"].btn-block {
 @media (max-width: 575.98px) {
   .navbar-expand-sm > .container,
   .navbar-expand-sm > .container-fluid {
+    background-image: url(/images/favicon.jpg);
     padding-right: 0;
     padding-left: 0; } }
 
