@@ -3555,6 +3555,7 @@ input[type="button"].btn-block {
       display: none; } }
 
 @media (max-width: 767.98px) {
+  background-image: url(/images/M106_opening3.jpg); /*원래 없던 것 */
   .navbar-expand-md > .container,
   .navbar-expand-md > .container-fluid {
     padding-right: 0;
