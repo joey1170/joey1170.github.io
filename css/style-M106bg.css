@@ -9137,9 +9137,9 @@ textarea.form-control {
       -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%); }
     .ftco-footer-social li a:hover {
-      color: #fff; } 
-    .ftco-footer-social li a span:hover {
-      color: #000000; } /* 원래 fff */
+      color: #000000; } 
+      .ftco-footer-social li a span:hover {
+        color: #000000; } /* 원래 fff */
 
 .footer-small-nav > li {
   display: inline-block; }
