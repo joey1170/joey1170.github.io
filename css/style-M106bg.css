@@ -9129,6 +9129,7 @@ textarea.form-control {
     border-radius: 50%;
     position: relative; }
     .ftco-footer-social li a span {
+      background-color: rgba(255, 255, 255, 0) /*원래 없엇음 */
       position: absolute;
       font-size: 36px; /*원래 26px */
       top: 50%;
