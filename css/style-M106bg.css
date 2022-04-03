@@ -8588,8 +8588,8 @@ h1, h2, h3, h4, h5,
     color: #fff !important; }
     .btn.btn-primary:hover {
       border: 1px solid #3e64ff !important;
-      background: #3e64ff !important;
-      color: #ffff00 !important; } /*원래 검은색 #000000 이었음 change 함  #87CEEB - skyblue */
+      background: #87ceeb !important;
+      color: #000000 !important; } /*원래 검은색 #000000 이었음 change 함  #87CEEB - skyblue */
     .btn.btn-primary.btn-outline-primary {
       border: 2px solid #3e64ff !important;
       background: transparent !important;
