@@ -8467,6 +8467,14 @@ h1, h2, h3, h4, h5,
   right: 0;
   bottom: 120px;
   z-index: 2; }
+  @media (max-width: 767.98px) {
+    .mouse{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    z-index: 2;  } }
+
 
 .mouse-icon {
   width: 70px;
