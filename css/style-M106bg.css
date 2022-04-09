@@ -165,7 +165,6 @@ figure {
   margin: 0 0 1rem; }
 
 img {
-  max-width: 100%; /*원래 없었던 change*/
   vertical-align: middle;
   border-style: none; }
 
