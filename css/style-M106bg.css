@@ -8465,7 +8465,7 @@ h1, h2, h3, h4, h5,
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 80px;
+  bottom: 40px;
   z-index: 2; }
 /*  @media (max-width: 767.98px) {
     .mouse{
