@@ -8467,12 +8467,12 @@ h1, h2, h3, h4, h5,
   right: 0;
   bottom: 120px;
   z-index: 2; }
-  @media (max-width: 767.98px) {
+  @media (max-width: 667.98px) {
     .mouse{
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 120px;
+    bottom: 40px;
     z-index: 2;  } }
 /*@media .mouse 내가 추가한 것 change 근데 좀 에러가 생기네 넘어갈 때 이렇게 하면 하앙  */
 
