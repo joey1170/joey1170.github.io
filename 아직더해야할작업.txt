@@ -1,0 +1,17 @@
+아직 내가 안 한 일들 
+
+blog-contents 의 contents.html 들 상대경로로 알맞게 좌표 지정해서 수정하기 
+
+2. index.html 내용 수정 
+
+
+3. gallery, index html 에 misc 자료들 , blog recent post 들 링크 수정 
+
+
+4. 하이퍼링크, linkedin 다 등록해놓기 
+
+
+5. 블로그 게시글 올리기 
+
+
+6. 인턴십 n주차 활동 올리기 
