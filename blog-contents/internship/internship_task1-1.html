@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>AstroJongin's Homepage</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+	<link rel="stylesheet" href="../../css/open-iconic-bootstrap.min.css">
+	<link rel="stylesheet" href="../../css/animate.css">
+
+	<link rel="stylesheet" href="../../css/owl.carousel.min.css">
+	<link rel="stylesheet" href="../../css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="../../css/magnific-popup.css">
+
+	<link rel="stylesheet" href="../../css/aos.css">
+
+	<link rel="stylesheet" href="../../css/ionicons.min.css">
+
+	<link rel="stylesheet" href="../../css/flaticon.css">
+	<link rel="stylesheet" href="../../css/icomoon.css">
+	<link rel="stylesheet" href="../../css/style.css">
+	
+	<link rel="shortcut icon" href="../images/favicon.ico">
+	
+	
+</head>
+
+	
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+		<div class="container">
+			<a class="navbar-brand" href="../../index.html"><span>A</span>stroJongin</a>
+			<button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
+				data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="oi oi-menu"></span> Menu
+			</button>
+
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav nav ml-auto">
+				  <li class="nav-item"><a href="../../blog-index.html" class="nav-link"><span>Home</span></a></li>
+				  <li class="nav-item"><a href="../../blog-contents/research-index.html" class="nav-link"><span>Research Details</span></a></li>
+				  <li class="nav-item"><a href="../../blog-contents/internship-index.html" class="nav-link"><span>Internship</span></a></li> <!-- Studying / Working -->
+				  <li class="nav-item"><a href="../../blog-contents/articles-index.html" class="nav-link"><span>Articles / Wiki </span></a></li>
+				  <li class="nav-item"><a href="../../blog-contents/paper-review-index.html" class="nav-link"><span>Paper Review</span></a></li>
+				  <li class="nav-item"><a href="../../blog-contents/gallery-index.html" class="nav-link"><span>Gallery</span></a></li>
+				</ul>
+			 </div>
+
+
+		</div>
+	</nav>
+
+
+	<div class="hero-wrap js-fullheight">
+		<div class="overlay"></div>
+		<div class="container">
+		  <div class="row no-gutters slider-text js-fullheight justify-content-center align-items-center">
+			<div class="col-lg-10 ftco-animate d-flex align-items-center">
+				<div class="text text-center">
+					<h1 class="mb-3 bread">Task 1 : RELICS Catalog Regeneration</h1>
+					<h1 class="mb-3 bread">How to use SExtractor? (MGL Internship)</h1>
+				  <p class="breadcrumbs"><span class="mr-2"><a href="../../index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a href="/blog-index.html">Blog <i class="ion-ios-arrow-forward"></i> </a></span> <span><a href="/paper-review-index.html" style="color:rgb(87, 87, 87)" >Paper Review <i class="ion-ios-arrow-forward"></i></a></span></p>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+		  
+	<section class="ftco-section">
+		<div class="container">
+		  <div class="row">
+			<div class="col-lg ftco-animate">
+			  <h2 class="mb-3">Source Extractor 사용법을 익히자</h2> 
+			  <p>SExtractor 사용법을 익혀야 한다는 말에 정답이 있는 것을 해보기로 했다. 그리고 JWST Deep Field로 찍은 SMACS J0723을 찍은 HST 이미지에서 카탈로그를 추출한 것처럼 나도 똑같이 추출해서 결과가 얼마나 비슷한 지 따져보기로 했다. 
+
+			  </p>
+			  <p>근 8주만에 부대 복귀하기 전에 일단 뭐 이 다음 새로운 활동을 할 수 있게 되었으니 까먹지 않고 교훈을 남기기 위해서 글로 정리해본다. 다만 이 것에 대한 자세한 복습과 설명은 근데 사진과 함께하면 너무 좋을 것 같은데;; 근데 안타깝게도 부대 복귀해야 해서 상세한 Figure + 실제 사용한 코드를 붙이는 설명은 부대에서 돌아와서 하는 걸로 하고 여기서는 글로 개략적인 설명만 남긴다. </p>
+			  <h2 class="mb-3">최종 결과물</h2> 
+		 	  <p>내가 최종적으로 만들어낸 CMD (초기에 그린 CMD를 보여주고 어떻게 개선되었는지를 순차적으로 설명해주는 것도 좋을 것 같다. 미래의 나에게 </p>
+
+			  <p style="text-align: center;">
+				<img src="../../images/image_3.jpg" alt="" class="img-fluid">
+			  </p>
+
+			  
+			  <h2 class="mb-3 mt-5">#2. 그래프 제대로 그리는 법</h2>
+			  <p>그래프 축, 제목, 눈금은 엄청 크게! (예전 그래프랑 최종 그래프 비교해서 보여주기), 범례도 확실하게! </p>
+			  <p>CMD는 파장이 짧은 쪽이 앞으로 가라 </p>
+
+
+			  <h2 class="mb-3 mt-5">#2. 매칭이란 무엇인가</h2>
+			  <p>카탈로그랑 내가 찾은 것들이랑 매칭하는 과정이 있었다. 매칭을 하는 과정에서 어려움이 있었는데 우여곡절 끝에 많은 걸 얻었다. 
+				가장 실수했떤 것은 매칭이라는 것은 내가 찾은 것과 정답 카탈로그를 채점하듯이 정답률을 비교하는 게 목표였는데 그게 아니었다. 채점하는 것이라기 보다는 
+				진짜 같은 부분을 확인해서 영점 조정을 하는 것이었다. 찾은 Source들 중에서 실제로 널리 알려진 카탈로그랑 매칭을 해서 그게 상당부분 맞다는 것이 확인이 되면
+				매칭이 안된 녀석들 또한 신뢰할 수 있는 source 가 되는 것이다. 전반적으로 이 활동을 하면서 매칭을 왜 하지 했는데 
+				
+				등급, 위치 (측광)을 통해 보정을 하고 매칭을 해서 특정한 카탈로그 내에 있는 별들이랑 내가 찾은 별들이랑 같게 하고 다른 별들이 같도록 하는 영점 조절이라는 사실을 눈치 채는데 많은 시간이 걸렸다. 즉, 이에 의하면 내가 찾은 Source 중에서 매칭이 안된 녀석들은 그냥 
+				잘못찾은 오답이라고 생각했는데 그게 아니라 내가 unique 하게 찾은 유의미한 source가 될 수 있는 것이다. (충분히 다른 source들이 다 다른 카탈로그랑 매칭이 된다면 말이다. )Temporibus ad error suscipit exercitationem hic molestiae totam obcaecati rerum, eius aut, in. Exercitationem atque quidem tempora maiores ex architecto voluptatum aut officia doloremque. Error dolore voluptas, omnis molestias odio dignissimos culpa ex earum nisi consequatur quos odit quasi repellat qui officiis reiciendis incidunt hic non? Debitis commodi aut, adipisci.</p>
+
+			   <h2 class="mb-3 mt-5">#2. SExtractor 사용법을 알기 위한 다양한 도전 과정 이해한 다양한 스킬들 </h2>
+			    <p> Sextractor 구동하는 법 / Parameter 기초적인 이해 
+					FWHM 구하는 법 / Ref Mag - Sex Mag vs Sex Mag 그래프의 의미 
+					Ds9 에서 Frame 맞추기 / Region 사용하기 / header 보기 
+					HST image 특성에 대한 이해 ? 
+
+					Ds9 Regions 파일로 fits 파일에 이상한 위치의 좌표들에 동그라미를 그려서 이미지 상에서 그위치가 어떻게 나타나는지 확인할 수 있다. 
+					Mag 차이 vs Mag (카탈로그 - SEx) 이 그래프의 차이점으로 zp가 잘못되었나? Detect_Threshold가 잘못도었나 알 수있다. 
+					
+					근데 교수님이 그 어두워질수록 이런 등급차이가 나타나는 건 사실 다른 원인이다 .. 뭘까?> 
+					
+					"측광의 원리 글 참고 "
+				</p>
+
+				<h2 class="mb-3 mt-5">#2. CMD를 그리다가 발생했던 수많은 우여곡절들 / 개선점들 </h2>
+				<p>주의할 점, 논문을 읽었을 때 재현하거나 참고할 거면 '정확하게 다 읽고 참고하고' 내 맘대로 근거 없이 바꾸지 마라 등급 iso mag 써야 하는데 auto mag 쓰다가 개판 나서 iso mag 쓰고,, 근데 단순히 이름이 더 좋아보이고 그래프 이쁘게 잘 나오니까 isocor mag 쓰다가 사실 iso mag 썼으면 해결 되는거 해결 하느라 1주일 헛짓한듯 ㅋㅋ 쓸데 없이 낭비한 시간 너무 많다. </p>
+			  <p>Reduced Img를 사용해야 하는데 멍청하게 Raw Image를 사용해서 엄청 고생함 </p>
+			  <p>Iso Mag 써야 하는데 Auto mag 쓰다가 바꿔서 개선 + Iso mag로 안 바뀨고 Isocor mag 쓰다가 막판에 진짜 제대로 
+				Iso mag로 바꾸고 문제 해결 
+			  </p>
+			  <p>FWHM Estimating, SExtractor 돌릴 때 FWHM 값을 얼마나를 써야할 지 모를 수 있다. 하지만 SExtractor에서 FWHM output을 뽑아낸 다음에 STellarity로 point source 인 녀석들에 대해서 FWHM vs Mag등급을 그리면 이제 
+				이론상 등급이 올라가도 FWHM 의 값은 그대로이기 때문에 수직선이 하나 생기고 그게 생기는 위치가 대략 그 이미지의 FWHM이라고 추정할 수 있다. (실제 찾는 데 사용한 figure 제시)
+			  </p>
+			  <p>zp를 계산하는데 도 여러 우여곡절이 있었다. 무슨 공식을 써야하는지 공부에는 성공했지만 제대로 계산이 안되어서 너무도 답답하던 차에 
+				너무 사이트에서 계싼된 zp에만 의존한다는 사실 .. 교수님의 조언을 통해 fits 파일 안에 있는 zp계산에 필요한 photflam 같은 값들을 꺼내서 바로 다이렉트로 계산해서 성공
+			  </p>
+			  <p>논문에 있는 은하소광 계산 안했다가 이를 보정하니까 바로 CMD 기둥 일치시키는 데 성공			  </p>
+			  <p>parameter input에 rms 이미지 보고 이딴거 왜 있찌 하다가 그걸 input 에 넣고 background 보정을 해야 정확하게 나온다는 거 알고 그것도 적용해서  mag-magerr 등급 획기적으로 상향 </p>
+			  <p>Matching Code로 계속 헛짓 반복하다가 조금씩 오차 이거 막으면 저거 세다가 이제 갓정환 선배님의 도움으로 매칭 코드 개선하니 완전 수월! 그저 천시</p>
+			  <p>이러한 도전 도전 도전 하고 마지막으로 isomag 로 완전히 바꾸니 CMD 가 매우 많이 겹쳐서 성공!! 참.. 한번에 다 해결 못하고 이 모든걸 8주동안 밤새가면서 우여곡절 시도하다가 하나 알고 그렇게 꾸쭌히 나아가니 조금씩 한발씩 나아가서 이렇게 많은 수정을 하고 절망저긍로 답이 안보였떤 CMD가 완성된 걸 보면 너무 뿌듯하다. 
+				하지만 제대로 처음부터 다 해결할 수 있는데 여러 번에 걸쳐서 해결한 문제들은 두고 두고 아쉽다. 앞으로 이런 시간 낭비 없게하자. 그리고 FIgure , Code 자세한 설명과 함께 다시 적자. 전역하고 나서 
+			  </p>
+			   </div>
+			  
+			  <div class="about-author d-flex p-4 bg-light">
+				<div class="bio mr-4">
+				  <img src="../../images/person_1.jpg" alt="Image placeholder" class="img-fluid mb-4">
+				</div>
+				<div class="desc">
+				  <h3>George Woddn</h3>
+				  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div class="container">
+		<script src="https://utteranc.es/client.js"
+		repo="joey1170/joey1170.github.io"
+		issue-term="pathname"
+		theme="github-light"
+		crossorigin="anonymous"
+		async>
+		</script>
+	</div>
+
+
+	<footer class="ftco-footer ftco-section">
+		<div class="container">
+		  <div class="row mb-5">
+			<div class="col-md">
+			  <div class="ftco-footer-widget mb-4">
+				<h2 class="ftco-heading-2">About</h2>
+				<p>Astronomer dreams as if live forever, lives as if die today. </p>
+				<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+				  <li class="ftco-animate"><a href="#"><span class="icon-github"></span></a></li>
+				  <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+				  <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+				  <li class="ftco-animate"><a href="#"><span class="icon-linkedin"></span></a></li>
+  
+				</ul>
+			  </div>
+			</div>
+			<div class="col-md">
+			  <div class="ftco-footer-widget mb-4 ml-md-4">
+				<h2 class="ftco-heading-2">Links</h2>
+				<ul class="list-unstyled">
+				  <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Home</a></li>
+				  <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>About</a></li>
+				  <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Services</a></li>
+				  <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Projects</a></li>
+				  <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Contact</a></li>
+				</ul>
+			  </div>
+			</div>
+			<div class="col-md">
+			   <div class="ftco-footer-widget mb-4">
+				<h2 class="ftco-heading-2">Interests</h2>
+				<ul class="list-unstyled">
+				  <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Web Design</a></li>
+				  <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Web Development</a></li>
+				  <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Business Strategy</a></li>
+				  <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Data Analysis</a></li>
+				  <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Graphic Design</a></li>
+				</ul>
+			  </div>
+			</div>
+			<div class="col-md">
+			  <div class="ftco-footer-widget mb-4">
+				  <h2 class="ftco-heading-2">Have a Questions?</h2>
+				  <div class="block-23 mb-3">
+					<ul>
+					  <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
+					  <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+					  <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+					</ul>
+				  </div>
+			  </div>
+			</div>
+		  </div>
+		  <div class="row">
+			<div class="col-md-12 text-center">
+  
+			  <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+	Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+	<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+			</div>
+		  </div>
+		</div>
+	  </footer>
+
+
+
+	<!-- loader -->
+	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+			<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+				stroke="#F96D00" />
+		</svg></div>
+
+
+	<script src="../../js/jquery.min.js"></script>
+	<script src="../../js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="../../js/popper.min.js"></script>
+	<script src="../../js/bootstrap.min.js"></script>
+	<script src="../../js/jquery.easing.1.3.js"></script>
+	<script src="../../js/jquery.waypoints.min.js"></script>
+	<script src="../../js/jquery.stellar.min.js"></script>
+	<script src="../../js/owl.carousel.min.js"></script>
+	<script src="../../js/jquery.magnific-popup.min.js"></script>
+	<script src="../../js/aos.js"></script>
+	<script src="../../js/jquery.animateNumber.min.js"></script>
+	<script src="../../js/scrollax.min.js"></script>
+
+	<script src="../../js/main.js"></script>
+
+</body>
+
+</html>
