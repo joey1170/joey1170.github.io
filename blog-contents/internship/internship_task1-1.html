@@ -63,8 +63,8 @@
 			<div class="col-lg-10 ftco-animate d-flex align-items-center">
 				<div class="text text-center">
 					<h1 class="mb-3 bread">Task 1 : RELICS Catalog Regeneration</h1>
-					<h1 class="mb-3 bread">How to use SExtractor? (MGL Internship)</h1>
-				  <p class="breadcrumbs"><span class="mr-2"><a href="../../index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a href="/blog-index.html">Blog <i class="ion-ios-arrow-forward"></i> </a></span> <span><a href="/paper-review-index.html" style="color:rgb(87, 87, 87)" >Paper Review <i class="ion-ios-arrow-forward"></i></a></span></p>
+					<h1 class="mb-3 bread">How to use SExtractor?</h1>
+				  <p class="breadcrumbs"><span class="mr-2"><a href="../../index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a href="/blog-index.html">Blog <i class="ion-ios-arrow-forward"></i> </a></span> <span><a href="/blog-contents/internship-index.html" style="color:rgb(87, 87, 87)" >Internship <i class="ion-ios-arrow-forward"></i></a></span></p>
 			  </div>
 			</div>
 		  </div>
@@ -75,65 +75,126 @@
 		<div class="container">
 		  <div class="row">
 			<div class="col-lg ftco-animate">
-			  <h2 class="mb-3">Source Extractor 사용법을 익히자</h2> 
-			  <p>SExtractor 사용법을 익혀야 한다는 말에 정답이 있는 것을 해보기로 했다. 그리고 JWST Deep Field로 찍은 SMACS J0723을 찍은 HST 이미지에서 카탈로그를 추출한 것처럼 나도 똑같이 추출해서 결과가 얼마나 비슷한 지 따져보기로 했다. 
-
+			  <h2 class="mb-3">Source Extractor 사용법 학습</h2> 
+			  <p> HST SMACS J0723 이미지를 SExtractor로 분석하여 Catalog를 얻어내고 CMD를 그려보았다. 이 때 HST SMACS J0723에 대한 RELICS Catalog 결과값이랑 분석 결과를 비교하였다. </p>
+			  <p> <a href="https://arxiv.org/abs/1903.02002">Coe, 2019, RELICS: Reionization Lensing Cluster Survey</a>(arXiv:1903.02002) 에서 RELICS Catalog를 어떻게 만들었는지에 대한 간단한 설명이 나와있어 이를 연구 진행에 참고하였다. </p>
+			  <p> 위 논문에서도 SExtractor를 사용했는데, 같은 이미지에 대해서 같은 프로그램을 돌려서 얻은 논문의 연구 결과가 정답지로서의 역할을 해줄 수 있으므로 스스로 SExtractor를 돌려서 얻은 결과와 비교해보면서 사용법을 익혔다. </p>
+			
+			  <p> 처음에는 SExtractor Manual도 제대로 안 읽고, 프로그램을 실행하는 구조도 모르고, 그 결과 얻어낸 모습은 그야말로 절망적이였다.</p>
+			  
+			  <p style="text-align: center;">
+				<img src="../../images/internship-images/RELraw1.PNG" alt="" class="img-fluid">
+				<figcaption style="text-align: center; color: black;"> Catalog 내 Source들의 좌표 (좌) SExtractor로 추출한 Source들의 좌표 (우) </figcaption>
 			  </p>
-			  <p>근 8주만에 부대 복귀하기 전에 일단 뭐 이 다음 새로운 활동을 할 수 있게 되었으니 까먹지 않고 교훈을 남기기 위해서 글로 정리해본다. 다만 이 것에 대한 자세한 복습과 설명은 근데 사진과 함께하면 너무 좋을 것 같은데;; 근데 안타깝게도 부대 복귀해야 해서 상세한 Figure + 실제 사용한 코드를 붙이는 설명은 부대에서 돌아와서 하는 걸로 하고 여기서는 글로 개략적인 설명만 남긴다. </p>
-			  <h2 class="mb-3">최종 결과물</h2> 
-		 	  <p>내가 최종적으로 만들어낸 CMD (초기에 그린 CMD를 보여주고 어떻게 개선되었는지를 순차적으로 설명해주는 것도 좋을 것 같다. 미래의 나에게 </p>
+			  
+
+			  <p> 많은 시행착오 끝에 그나마 결과적으로 근접한 결과를 얻을 수 있었다. 아래에서는 어떠한 요소들을 극복하고, SExtractor 사용법을 익혔는지 설명하겠다.</p>
+
+
+			  <h3 class="mb-3 mt-5">STEP 1. Reduced Img 사용</h3>
+			  <p> Raw Data Image로 바로 진행해서 얻은 결과의 정확성은 형편 없었다. Mag-Magerr 그래프에서 값이 비슷하지도 않았다. 이는 논문에서는 Reduced Img를 사용했던 것이고, 논문 저자 측에서 이 Reduced img를 제공하여 이를 바로 사용하였다. 다만, 아직 Reduced Img를 Raw Img에서 어떻게 만들었는지는 공부하지 못했다.   </p>
+
+			  <h3 class="mb-3 mt-5">STEP 2. Iso Magnitude 사용</h3>
+			  <p> Source Extractor 에서는 다양한 종류의 등급이 있다. 논문에서는 Mag_Iso를 사용했는데 이에 상응하지 않는 Mag_Auto를 사용하면서 발생했던 오차를 개선하였다. </p>
+			  
+			  <h3 class="mb-3 mt-5">STEP 3. Parameter input _ Weight Image 보정 </h3>
+			  <p>주어진 reduced img 중에서 drc.fits (Main Image) 종류 말고도 .rms.fits, .wht.fits와 같은 Weight Image파일도 제공되었다. 이를 활용하니 Magerr의 값이 크게 하향되었다. </p>
+			  
+			  <h3 class="mb-3 mt-5">STEP 4. Zeropoint 보정 </h3>
+			  <p> 별의 등급을 측정하는 것에 있어 zeropoint가 맞지 않았는데, 이는 ACS Zeropoint Calculator을 이용해서 단순힌 관측 날짜/관측 필터 정보만을 이용해서 대략적인 Zeropoint 값을 추산하려고 했기 때문에 벌어진 일이다. 
+			  STScI에서 제공해준 <a href="https://arxiv.org/abs/1903.02002">Zeropoint에 대한 설명</a>을 참고하여 HST Image header에서 PHOTFLAM, PHOTPLAM 값을 바로 뽑아낸 이후 Zeropont 값을 직접 계산하였다. 그 결과 카탈로그와 매우 비슷한 정확한 Zeropoint를 얻을 수 있었다. 
+			  </p>
+			  <p> 참고로 이 Zeropoint 문제 해결하려고 끙끙대는 와중에 (심지어 HST header를 여러 번 봤으나 이걸로 zp가 안 구해진다고 스스로 잘못된 결론을 내린 상태) 교수님과의 면담 중 교수님께서 "HST Image 안에서 바로 Zp 구할 수 있을텐데? 다시 한 번 제대로 봐봐" 한 마디에 바로 1주일 동안 삽질하던 zp문제가 10분만에 문제가 해결 되었다. 그냥 말 한 마디의 위엄... 과외를 학생들이 하는 이유를 뻐저리게 깨달을 수 있을 것 같다. </p>
+
+			  <h3 class="mb-3 mt-5">STEP 5. FWHM / pixel scale</h3>
+			  SExtractor를 사용할 때 해당 이미지의 FWHM에 해당하는 값을 input으로 넣어주어야 한다. 따라서 이 FWHM 값을 추산해서 input으로 넣는 것 또한 중요한 과정 중 하나이다. 
 
 			  <p style="text-align: center;">
-				<img src="../../images/image_3.jpg" alt="" class="img-fluid">
+				<img src="../../images/internship-images/fwhm_stel1.PNG" alt="" class="img-fluid">
+				<figcaption style="text-align: center; color: black;"> Source들의 등급과 FWHM값을 나타낸 Plot : SExtractor Output (좌) Catalog (우) </figcaption>
+			  </p>
+			  위 그림은 실제로 FWHM을 측정하는데 사용하였던 Plot이다. <br>
+			  이론상 pointsource의 경우에는 등급이 얼마나 올라가든 관계 없이 FWHM 값이 일정하다. 따라서 이론상 FWHM vs Mag 를 그린 Plot 안에서 수직선이 나타나게 된다. 
+			  이는 pointsource에 해당하는 붉은 점들을 집중적으로 관찰하면 더욱 분명하게 확인할 수 있다. 
+			  즉, pointsource에 대해서 source의 등급이 관계없이 일정하게 측정되는 FWHM 값을 해당 image에서 FWHM의 대표값으로 간주하여 다시 SExtractor의 Input에 활용할 수 있다. 
+			  (물론 이 Plot을 그리기 위해서는 FWHM을 임의의 값을 주어야 하지만 이 결과값을 다시 피드백하여 정확도를 개선할 수 있다.) <br>
+
+			  SExtractor에서는 pixel 값으로 FWHM 값을 제공하므로 이는 image의 pixel scale 정보와 결합하여야 arcsec단위의 FWHM을 구할 수 있다. 
+
+			  <h3 class="mb-3 mt-5">STEP 6. Galactic Extinction </h3>
+			  위의 요소를 전부 해결한 이후에도 Catalog의 CMD와 내가 그린 CMD에는 0.5등급 이내의 평행이동한 만큼의 위치의 차이가 있었다. 
+			  이는 소광효과로 인한 등급 보정을 고려하지 않아서 발생한 문제점이었다. 이 소광등급의 값은 각 필터에 대해서 고정된 값을 가지며, Coe+2019 논문에 그 값이 작성되어 있어 이를 적용하여 오차를 줄일 수 있었다. 
+
+
+			  <h3> 이러한 요소들을 고려해서 우리는 다음과 같은 으리으리한 Plot들을 얻는 것에 성공하였다. </p>
+
+			  <p style="text-align: center;">
+				<img src="../../images/internship-images/rawcmd1.PNG" alt="" class="img-fluid">
+				<figcaption style="text-align: center; color: black;"> Catalog, SExtractor로 얻은 CMD (Raw Data)</figcaption>
+			  </p>
+			  <p style="text-align: center;">
+				<img src="../../images/internship-images/cmdmatched1.PNG" alt="" class="img-fluid">
+				<figcaption style="text-align: center; color: black;"> Catalog, SExtractor로 얻은 CMD (Matched Source) </figcaption>
+			  </p>
+			  <p style="text-align: center;">
+				<img src="../../images/internship-images/magdif1.PNG" alt="" class="img-fluid">
+				<figcaption style="text-align: center; color: black;"> Matched Source와 Catlaog의 등급차, 이번 측정의 정확도를 나타내는 대표값 중 하나 </figcaption>
 			  </p>
 
+
+			  최종적으로는 Catalog의 85% 가까이를 찾아내는 결과를 얻었다. 
+
+			  <h2 class="mb-3 mt-5">해당 과정을 통해 얻은 지식</h3>
+  
+			  <h3 class="mb-3 mt-5">#1. 그래프 제대로 그리는 법</h2>
+			   <p>그래프 축, 제목, 눈금은 엄청 크게! 정말 2~3배 더 크게! 학회 가면 다 안보인다! 범례도 확실하게! </p>
 			  
-			  <h2 class="mb-3 mt-5">#2. 그래프 제대로 그리는 법</h2>
-			  <p>그래프 축, 제목, 눈금은 엄청 크게! (예전 그래프랑 최종 그래프 비교해서 보여주기), 범례도 확실하게! </p>
-			  <p>CMD는 파장이 짧은 쪽이 앞으로 가라 </p>
+			   Two Column으로 Before After 그리기 
+			  <p style="text-align: center;">
+				<img src="../../images/internship-images/before1.PNG" alt="" class="img-fluid">
+				<figcaption style="text-align: center; color: black;"> 가독성 떨어지는 Before Graph</figcaption>
+			  </p>
+			  <p style="text-align: center;">
+				<img src="../../images/internship-images/after1.PNG" alt="" class="img-fluid">
+				<figcaption style="text-align: center; color: black;"> 마치 논문을 보는 듯한 착각을 주는 가독성 좋은 After Graph  </figcaption>
+			  </p>
 
+			  <h3 class="mb-3 mt-5">#2. 매칭이란 무엇인가, 어떻게 하는가</h3>
 
-			  <h2 class="mb-3 mt-5">#2. 매칭이란 무엇인가</h2>
-			  <p>카탈로그랑 내가 찾은 것들이랑 매칭하는 과정이 있었다. 매칭을 하는 과정에서 어려움이 있었는데 우여곡절 끝에 많은 걸 얻었다. 
-				가장 실수했떤 것은 매칭이라는 것은 내가 찾은 것과 정답 카탈로그를 채점하듯이 정답률을 비교하는 게 목표였는데 그게 아니었다. 채점하는 것이라기 보다는 
-				진짜 같은 부분을 확인해서 영점 조정을 하는 것이었다. 찾은 Source들 중에서 실제로 널리 알려진 카탈로그랑 매칭을 해서 그게 상당부분 맞다는 것이 확인이 되면
-				매칭이 안된 녀석들 또한 신뢰할 수 있는 source 가 되는 것이다. 전반적으로 이 활동을 하면서 매칭을 왜 하지 했는데 
+		
+			  <p>카탈로그랑 내가 찾은 것들이랑 매칭하는 과정을 진행했었다. 매칭을 하는 과정에서 어려움이 있었는데 우여곡절 끝에 많은 걸 얻었다. </p>
+			  <p>첫 번째 어려움은 매칭을 하는 파이썬 코드를 짜는 어려움이었다. 사실, 혼자서 인터넷 검색을 통해 astropy.matching으로 잘 진행해볼려고 했는데, 잘 되어 어딘가 부정확했다.
+				 그러나 킹정환 선배님의 코드 도움을 받아서 어엿한 매칭 코드를 사용할 수 있었다. 매칭 코드는 <a href="https://github.com/joey1170/2022_Internship_RELICS_SMACS/blob/main/source_type_analysis_2.0b_Final.ipynb">이곳</a>에서 확인할 수 있다. </p>
+				
+				가장 잘못 이해했던 사실은 매칭이라는 것은 내가 찾은 것과 정답 카탈로그를 채점하듯이 정답률을 비교하는 게 목표였는데 그게 아니었다. 채점하는 것이라기 보다는 
+				진짜 같은 부분을 확인해서 영점 조정을 하는 것이 목적이라는 것이다. 찾은 Source들 중에서 실제로 널리 알려진 카탈로그랑 매칭을 해서 그게 상당부분 맞다는 것이 확인이 되면
+				매칭이 안된 녀석들 또한 신뢰할 수 있는 source 가 되는 것이다. 즉, 100% 완벽하게 일치하는 게 아니라 어느 정도 일치하는 것이 확인이 된다면 다른 Source들에 대해서도 신뢰성 있는 Data로 간주할 수 있다는 의미이다. 
 				
 				등급, 위치 (측광)을 통해 보정을 하고 매칭을 해서 특정한 카탈로그 내에 있는 별들이랑 내가 찾은 별들이랑 같게 하고 다른 별들이 같도록 하는 영점 조절이라는 사실을 눈치 채는데 많은 시간이 걸렸다. 즉, 이에 의하면 내가 찾은 Source 중에서 매칭이 안된 녀석들은 그냥 
-				잘못찾은 오답이라고 생각했는데 그게 아니라 내가 unique 하게 찾은 유의미한 source가 될 수 있는 것이다. (충분히 다른 source들이 다 다른 카탈로그랑 매칭이 된다면 말이다. )Temporibus ad error suscipit exercitationem hic molestiae totam obcaecati rerum, eius aut, in. Exercitationem atque quidem tempora maiores ex architecto voluptatum aut officia doloremque. Error dolore voluptas, omnis molestias odio dignissimos culpa ex earum nisi consequatur quos odit quasi repellat qui officiis reiciendis incidunt hic non? Debitis commodi aut, adipisci.</p>
+				잘못찾은 오답이라고 생각했는데 그게 아니라 내가 unique 하게 찾은 유의미한 source가 될 수 있는 것이다. (충분히 다른 source들이 다 다른 카탈로그랑 매칭이 된다면 말이다.)</p>
 
-			   <h2 class="mb-3 mt-5">#2. SExtractor 사용법을 알기 위한 다양한 도전 과정 이해한 다양한 스킬들 </h2>
-			    <p> Sextractor 구동하는 법 / Parameter 기초적인 이해 
-					FWHM 구하는 법 / Ref Mag - Sex Mag vs Sex Mag 그래프의 의미 
-					Ds9 에서 Frame 맞추기 / Region 사용하기 / header 보기 
-					HST image 특성에 대한 이해 ? 
+			   <h3 class="mb-3 mt-5">#3. SExtractor 구동법 </h3>
+			   가장 주요한 메인 소득, 우선 SExtractor Manual을 읽어서 기초적인 SExtractor 내의 여러 param에 대한 이해를 얻었다. 일반적으로 어떤 param을 수정하는지도 알았다. (하지만 아직 모르는게 훨씬 더 많다.)
+			   SExtractor에서 어떠한 방식으로 이를 실행시킬 수 있는 지 알게되었다. (이 과정에서도 킹정환 선배님 코드 참고함)
+			   사용한 코드는 <a href="https://github.com/joey1170/2022_Internship_RELICS_SMACS/blob/main/run_SExtractor.ipynb">이곳</a>에서 찾을 수 있다.
+			   <br>
+				또한 SExtractor Ouptut과 Catalog를 비교하는 유용한 그래프 중 하나를 알게 되었는데, 
+				Mag 차이 (카탈로그 - SEx) vs SEx 등급(측정 등급)의 그래프로 무엇을 알 수 있는지 알게 되었다. 이 그래프의 중심이 0이 아니면 zp문제, 그리고 그래프의 대칭이 맞지 않을 경우 detection 과정에서 aperture 내의 다른 source, noise 등으로 인해 background subtraction이 잘못 발생했다는 것을 알게 되었다. 
+				이에 대한 자세한 설명은 <a href="../internship/internship_task1-2.html">측광의 원리</a> 글 참고 
 
-					Ds9 Regions 파일로 fits 파일에 이상한 위치의 좌표들에 동그라미를 그려서 이미지 상에서 그위치가 어떻게 나타나는지 확인할 수 있다. 
-					Mag 차이 vs Mag (카탈로그 - SEx) 이 그래프의 차이점으로 zp가 잘못되었나? Detect_Threshold가 잘못도었나 알 수있다. 
-					
-					근데 교수님이 그 어두워질수록 이런 등급차이가 나타나는 건 사실 다른 원인이다 .. 뭘까?> 
-					
-					"측광의 원리 글 참고 "
-				</p>
 
-				<h2 class="mb-3 mt-5">#2. CMD를 그리다가 발생했던 수많은 우여곡절들 / 개선점들 </h2>
-				<p>주의할 점, 논문을 읽었을 때 재현하거나 참고할 거면 '정확하게 다 읽고 참고하고' 내 맘대로 근거 없이 바꾸지 마라 등급 iso mag 써야 하는데 auto mag 쓰다가 개판 나서 iso mag 쓰고,, 근데 단순히 이름이 더 좋아보이고 그래프 이쁘게 잘 나오니까 isocor mag 쓰다가 사실 iso mag 썼으면 해결 되는거 해결 하느라 1주일 헛짓한듯 ㅋㅋ 쓸데 없이 낭비한 시간 너무 많다. </p>
-			  <p>Reduced Img를 사용해야 하는데 멍청하게 Raw Image를 사용해서 엄청 고생함 </p>
-			  <p>Iso Mag 써야 하는데 Auto mag 쓰다가 바꿔서 개선 + Iso mag로 안 바뀨고 Isocor mag 쓰다가 막판에 진짜 제대로 
-				Iso mag로 바꾸고 문제 해결 
-			  </p>
-			  <p>FWHM Estimating, SExtractor 돌릴 때 FWHM 값을 얼마나를 써야할 지 모를 수 있다. 하지만 SExtractor에서 FWHM output을 뽑아낸 다음에 STellarity로 point source 인 녀석들에 대해서 FWHM vs Mag등급을 그리면 이제 
-				이론상 등급이 올라가도 FWHM 의 값은 그대로이기 때문에 수직선이 하나 생기고 그게 생기는 위치가 대략 그 이미지의 FWHM이라고 추정할 수 있다. (실제 찾는 데 사용한 figure 제시)
-			  </p>
-			  <p>zp를 계산하는데 도 여러 우여곡절이 있었다. 무슨 공식을 써야하는지 공부에는 성공했지만 제대로 계산이 안되어서 너무도 답답하던 차에 
-				너무 사이트에서 계싼된 zp에만 의존한다는 사실 .. 교수님의 조언을 통해 fits 파일 안에 있는 zp계산에 필요한 photflam 같은 값들을 꺼내서 바로 다이렉트로 계산해서 성공
-			  </p>
-			  <p>논문에 있는 은하소광 계산 안했다가 이를 보정하니까 바로 CMD 기둥 일치시키는 데 성공			  </p>
-			  <p>parameter input에 rms 이미지 보고 이딴거 왜 있찌 하다가 그걸 input 에 넣고 background 보정을 해야 정확하게 나온다는 거 알고 그것도 적용해서  mag-magerr 등급 획기적으로 상향 </p>
-			  <p>Matching Code로 계속 헛짓 반복하다가 조금씩 오차 이거 막으면 저거 세다가 이제 갓정환 선배님의 도움으로 매칭 코드 개선하니 완전 수월! 그저 천시</p>
-			  <p>이러한 도전 도전 도전 하고 마지막으로 isomag 로 완전히 바꾸니 CMD 가 매우 많이 겹쳐서 성공!! 참.. 한번에 다 해결 못하고 이 모든걸 8주동안 밤새가면서 우여곡절 시도하다가 하나 알고 그렇게 꾸쭌히 나아가니 조금씩 한발씩 나아가서 이렇게 많은 수정을 하고 절망저긍로 답이 안보였떤 CMD가 완성된 걸 보면 너무 뿌듯하다. 
-				하지만 제대로 처음부터 다 해결할 수 있는데 여러 번에 걸쳐서 해결한 문제들은 두고 두고 아쉽다. 앞으로 이런 시간 낭비 없게하자. 그리고 FIgure , Code 자세한 설명과 함께 다시 적자. 전역하고 나서 
-			  </p>
+			<h3 class="mb-3 mt-5">#4. DS9 사용법 </h3>
+			Ds9 Regions 파일을 생성해서 fits 파일을 ds9으로 열였을 때 특정한 위치의 좌표들에 동그라미를 그려서 그 특정한 위치가 이미지 상에서 어떻게 보이는 지 확인할 수 있다. 특이한 Source들을 이미지 상에서 확인할 떄 특히 유용하다. 
+			이를 진행하는 코드는  <a href="https://github.com/joey1170/2022_Internship_RELICS_SMACS/blob/main/run_SExtractor.ipynb">이곳</a>에서 "# test.reg 만드는 코드" 참고
+
+
+			<h3 class="mb-3 mt-5">#5. 측광의 원리 / HST imag 특성에 대한 이해 </h3>
+			 HST Img를 다루어보면 Zp를 구할 수 있다는 간단한 사실부터 교수님이 알려주신 <a href="../internship/internship_task1-2.html">측광의 원리</a>까지 여러 기타 지식도 알게 되었다. 
+
+
+			<h2 class="mb-3 mt-5">#6. 참고할 자료를 정확하고 철저하게 읽어야 한다는 사실 </h3>
+			제일 중요한 사실, 2달을 해매면서 진행했는데 고민한 시간의 70%는 사실 참고한 논문만 제대로 읽었어도 고민하고 삽질하는 시간을 매우 줄일 수 있었던 문제였다. 논문에 나와있는데로 하지 않거나, 논문에서 설명한 부분을 미처 보정하지 않았거나, 지레짐작으로 아무 근거없이 논문에서 설명한 부분을 본인이 재현할 때는 조금 수정한다거나... 이는 논문을 꼼꼼하게 읽지 않고 들이박거나, 여기서는 제대로 된 정보가 나올 일 없다는 지레짐작에서 발생한 참사로, 앞으로는 참고할 수 있는 선행 자료, 교육 자료들은 더더욱 정말로 철저하게 읽어야겠다고 생각했다. 
+			다시는 이런일 없도록 하자. 
 			   </div>
 			  
 			  <div class="about-author d-flex p-4 bg-light">
