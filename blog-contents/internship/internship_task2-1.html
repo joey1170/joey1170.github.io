@@ -62,9 +62,9 @@
 		  <div class="row no-gutters slider-text js-fullheight justify-content-center align-items-center">
 			<div class="col-lg-10 ftco-animate d-flex align-items-center">
 				<div class="text text-center">
-					<h1 class="mb-3 bread">Blog Single Post (Title)</h1>
-					<h1 class="mb-3 bread">de Jaeger et al. 2021. Nature. Astronomy July 21th</h1>
-				  <p class="breadcrumbs"><span class="mr-2"><a href="../../index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a href="/blog-index.html">Blog <i class="ion-ios-arrow-forward"></i> </a></span> <span><a href="/paper-review-index.html" style="color:rgb(87, 87, 87)" >Paper Review <i class="ion-ios-arrow-forward"></i></a></span></p>
+					<h1 class="mb-3 bread">Task 2 : AI/ML in Astronomy (Robertson+2022)</h1>
+					<h1 class="mb-3 bread">How to use Morpheus?</h1>
+				  <p class="breadcrumbs"><span class="mr-2"><a href="../../index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a href="/blog-index.html">Blog <i class="ion-ios-arrow-forward"></i> </a></span> <span><a href="/blog-contents/internship-index.html" style="color:rgb(87, 87, 87)" >Internship <i class="ion-ios-arrow-forward"></i></a></span></p>
 			  </div>
 			</div>
 		  </div>
@@ -75,21 +75,71 @@
 		<div class="container">
 		  <div class="row">
 			<div class="col-lg ftco-animate">
-			  <h2 class="mb-3"> Plot 이쁘게 그리기 Visualization </h2>
-			  <p> 먼저 졸업하신 서강일 선배님께서 이쁘게 그래프 그리는 parameter를 보내주셨다. 그래서 Task1 게시글에서 그렸던 CMD 중 하나를 다시 그려보았다. 과연 ... 더 개선된 것 같은가? </p>
+			  <h2 class="mb-3">Morpheus 사용법 학습</h2> 
+			  <p> ML/AI 관련 지식을 활용한 연구가 천문학에서 떠오르고 있고 이와 관련된 것을 공부해볼 것을 이명균 교수님으로부터 추천받았다. JWST, AI 두 키워드를 검색하자 마자 나온 유일한 논문을 지나치지 못하고 <p> <a href="https://arxiv.org/abs/2208.11456">Robertson, 2022, Morpheus Reveals Distant Disk Galaxy Morphologies with JWST: The First AI/ML Analysis of JWST Images</a>(arXiv:2208.11456) 해당 논문을 읽고 공부하기 시작하였다.</p>
+			<p>해당 논문은 Morpheus로 JWST CEERS Data의 EGS 영역을 분석해서 찾은 disk candidates들을 어떻게, 얼마나 찾았는 지 설명하는 논문으로 앞으로 Morpheus를 활용한 은하 분류의 가능성을 담은 논문이다. </p>
+
+			  <p> Morpheus는 pixel-level classification을 통해 은하를 Disk/Sphr/Irr/Background/Pointsource 5개의 class로 분류해줄 수 있는 Deep Learning Framework이다. 은하의 분류 작업을 AI 기술을 이용헤 진행하는 코드. 그 정확성에 대해서는 여전히 사람의 눈이 더 뛰어나다고 한다.(이명균 교수님께서 하신 말씀이니 틀림없다.) 실제 논문에서도 Morpheus로 분류한 결과에 대해서 Visual Morphology, Forcepho/Profit을 활용한 Sersic Index fitting 등 전통적 방법에서의 disk 분류 등으로 재확인 과정을 거친다. 다만, 사람의 눈으로 하기 어려운 작업, 대용량 작업 등에 있어서 효과적인 작동을 할 수 있을 것으로 기대된다. </p>
+			
+			  <p>
+			  Morpheus는 각 pixel에 대해서 어느 class에 분류될 지 확률 값이 다 계산된다. 그리고 하나의 object로 인식된 녀석들은 다 summation해서 분류가 이루어진다. 즉, pixel 별로 값이 계산되다 보니 장점은 하나의 은하에 대해서 그 부분별로 다른 특성을 다 확인하고 분석해 사용할 수 있다. (여기에 대해서 추가로 분석한 논문을 낸다고 하는데 아직 안나왔다.)
+				</p>
+
+			
+			<p>
+			  pixel 별로 계산하는 것을 효율적으로 Large image에 적용하기 위해 Sliding Window technique을 사용하는데 이를 Morpheus_core라는 framework로 만들어서 별도로 pixel-level analysis 하는 model을 large astronomical image로 바꾸기 쉽게 해놓았다. 
+			</p>
+			<p> Morpheus를 사용하는 법을 공부해보았다.  <br>
+				사실 Morpheus를 사용하는데 제일 편한 자료는 <a href="https://github.com/morpheus-project/morpheus/blob/master/examples/example_array.ipynb">github example code</a> 나 <a href="https://www.comet.com/ryanhausen/big-morpheus/251c130ba7ae480e860edadbfd69ca7d?experiment-tab=code&viewId=lsxFNKY4wMjORL9326hvdny5r">Morpehus Workshop 자료 </a>
+				를 참고해도 된다. 
+
+				다만, 공부하면서 직접 정리한 코드를 <a href="https://www.comet.com/ryanhausen/big-morpheus/251c130ba7ae480e860edadbfd69ca7d?experiment-tab=code&viewId=lsxFNKY4wMjORL9326hvdny5r">나의 github repository 중 하나 </a>에 올려놓았다. <-- 아직 안 올림</p>
+
+			  
+			  <p style="text-align: center;">
+				<img src="../../images/internship-images/RELraw1.PNG" alt="" class="img-fluid">
+				<figcaption style="text-align: center; color: black;"> Catalog 내 Source들의 좌표 (좌) SExtractor로 추출한 Source들의 좌표 (우) </figcaption>
+			  </p>
+			  
+
+			  <p> 그래도 많은 시행착오 끝에 지금까지 인터넷에서 찾을 수 있는 Morpheus 결과 자료들과 그 결과를 비교해보았을 때 비슷하다는 것을 확인할 수 있었다. 
+			  </p>
+
+			  <h3 class="mb-3 mt-5">Morpheus 결과 자료 1. 3D-HST Survey </h3>
+			  <p> <a href="https://morpheus-project.github.io/morpheus/ "> Morpheus Framework homepage</a>에 방문하면 그와 관련된 3D-HST survey 에 대해서 Morpheus 돌린 데이터를 모두 올려놓고 있는데 직접 돌려보니가 결과가 거의 똑같이 나왔다. </p>
+
+				<h3 class="mb-3 mt-5">Morpheus 결과 자료 2.Robertson+2022 논문  </h3>
+				<p> Morpheus 로 JWST CEERS EGS data 분석한 robertson+2022 figure 3에서 찾을 수 있는 disk canddiates. 논문에서 disk candidates catalog 를 안줘서 figure에서 눈으로 대응시켜서 disk candidates 10개 정도를 겨우 찾을 수 있었고 이를 바탕으로 Morpheus를 돌려보니 어쨋든 이러한 녀석들도 disk로 분류가 되었다  </p>
+
+				<p>이는 고로 지금까지 Morpheus 분석한 결과가 나름 reference들과 잘 맞아떨어지는 것 같다. </p>
+
+				
+			</p>
+
+			  <h3 class="mb-3 mt-5"> Morpheus 구동 빨리 시키는 편 법? </h3>
+			  <h3> Morpheus가 pixel-level classification 이다 보니 구동시간이 좀 오래걸린다.</h3>
+				<p>다만, 어차피 분류하고자 하는 Source들의 위치가 정해져있다면 사실 이미지 전체에 대해서 돌리지 않고 은하 분류작업을 시행하고자 하는 Source들의 위치를 알고 이미지를 작게 source 중심으로 주변을 cutout 해서 cutout한 작은 이미지들 여러 개 (source 개수만큼) Morpheus를 돌리면 오히려 Reference에 더 정확한 결과를 얻으면서도 (기본적으로 이미지 전체 돌릴 때보다 더 많이 찾고 분류하지만 background일 녀석도 source로 분류하는 단점이 발생하기도 함) 20배 정도 더 계산시간을 줄일 수 있다. 그 source 주변만 분류해도 결과는 크게 차이 나지 않기 때문이다. 
+					
+					정식적인 방법은 맞는 지 모르겟으나 개인적으로 결과의 정확도를 더 좋게 하면서 (over detect가 존재하지만) 시간도 줄이는 방법이다. 이 cutout을 하면서 Morpheus 구동하는 코드도 github repository(<- 이것도 링크 걸어야 지 좀잇다가) 
+					에 올려놓았다.  <br>
+
+					근데 이게 틀린 방법일 수도 ㅋㅋ 
+
+				</p>
 
 			  <p style="text-align: center;">
-				<img src="../../images/internship-images/figcomparisonprior.png" alt="" class="img-fluid">
-				<figcaption style="text-align: center; color: black;"> 이전 CMD </figcaption>
+				<img src="../../images/internship-images/rawcmd1.PNG" alt="" class="img-fluid">
+				<figcaption style="text-align: center; color: black;"> Catalog, SExtractor로 얻은 CMD (Raw Data)</figcaption>
 			  </p>
 
 
-			  <p style="text-align: center;">
-				<img src="../../images/internship-images/figcomparison_gangilparam.png" alt="" class="img-fluid">
-				<figcaption style="text-align: center; color: black;"> 개선된 CMD </figcaption>
-			  </p>
 
-			  <p>과연 더 나아진 것 같은가? </p>
+
+
+
+
+
+			   </div>
 			  
 			  <div class="about-author d-flex p-4 bg-light">
 				<div class="bio mr-4">
