@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>AstroJongin's Homepage</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+	<link rel="stylesheet" href="../../css/open-iconic-bootstrap.min.css">
+	<link rel="stylesheet" href="../../css/animate.css">
+
+	<link rel="stylesheet" href="../../css/owl.carousel.min.css">
+	<link rel="stylesheet" href="../../css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="../../css/magnific-popup.css">
+
+	<link rel="stylesheet" href="../../css/aos.css">
+
+	<link rel="stylesheet" href="../../css/ionicons.min.css">
+
+	<link rel="stylesheet" href="../../css/flaticon.css">
+	<link rel="stylesheet" href="../../css/icomoon.css">
+	<link rel="stylesheet" href="../../css/style.css">
+	
+	<link rel="shortcut icon" href="../images/favicon.ico">
+	
+	
+</head>
+
+	
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+		<div class="container">
+			<a class="navbar-brand" href="../../index.html"><span>A</span>stroJongin</a>
+			<button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
+				data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="oi oi-menu"></span> Menu
+			</button>
+
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav nav ml-auto">
+				  <li class="nav-item"><a href="../../blog-index.html" class="nav-link"><span>Home</span></a></li>
+				  <li class="nav-item"><a href="../../blog-contents/research-index.html" class="nav-link"><span>Research Details</span></a></li>
+				  <li class="nav-item"><a href="../../blog-contents/internship-index.html" class="nav-link"><span>Internship</span></a></li> <!-- Studying / Working -->
+				  <li class="nav-item"><a href="../../blog-contents/articles-index.html" class="nav-link"><span>Articles / Wiki </span></a></li>
+				  <li class="nav-item"><a href="../../blog-contents/paper-review-index.html" class="nav-link"><span>Paper Review</span></a></li>
+				  <li class="nav-item"><a href="../../blog-contents/gallery-index.html" class="nav-link"><span>Gallery</span></a></li>
+				</ul>
+			 </div>
+
+
+		</div>
+	</nav>
+
+
+	<div class="hero-wrap js-fullheight">
+		<div class="overlay"></div>
+		<div class="container">
+		  <div class="row no-gutters slider-text js-fullheight justify-content-center align-items-center">
+			<div class="col-lg-10 ftco-animate d-flex align-items-center">
+				<div class="text text-center">
+					<h1 class="mb-3 bread">Task 2 : Galaxy Morphology</h1>
+					<h1 class="mb-3 bread">How to use Photutils.Ellipse?</h1>
+				  <p class="breadcrumbs"><span class="mr-2"><a href="../../index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a href="/blog-index.html">Blog <i class="ion-ios-arrow-forward"></i> </a></span> <span><a href="/blog-contents/internship-index.html" style="color:rgb(87, 87, 87)" >Internship <i class="ion-ios-arrow-forward"></i></a></span></p>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+		  
+	<section class="ftco-section">
+		<div class="container">
+		  <div class="row">
+			<div class="col-lg ftco-animate">
+
+			  <h4> 본 글에서는 시행착오를 제외하고 최종적으로 공부해낸 Photutils.Ellipse를 통해 은하의 Brightness Profile을 분석하고 Sersic-Index를 구하는 법에 대해서 다룹니다. 타원 은하 / 나선 은하 하나씩에 대해서 다룰 예정입니다. </h4>	
+
+				<blockquote cite="https://www.huxley.net/bnw/four.html"> ChatGPT가 들려주는 sersic index 이야기 : Sersic 지수는 천체의 밝기 분포를 표현하는 방법 중 하나입니다. 이 지수는 천체의 중심에서 외부까지 밝기가 어떻게 분포하는지를 수학적으로 표현합니다. Sersic 지수는 갈증곡선 모양으로 표현되며, 지수가 작을수록 중심 부근에서 밝기가 급격하게 증가하고, 지수가 커질수록 천체의 외부에서 밝기가 느리게 증가합니다. 이러한 특성으로 인해, Sersic 지수는 천체의 모양과 크기를 추정하는 데에 유용하게 사용됩니다. </blockquote>
+	
+				<h3>깜빡하고 넘어갈 뻔한 Photutils.Ellipse fitting의 간단한 원리</h3>
+				<p>같은 밝기를 가진 점들을 이은 선을 Isophote라고 한다. 주어진 이미지 내에서 Source에 맞는 타원 Isophote를 많이 fitting 한다. 그럼 결국 source는 수많은 타원 isophote의 합으로 이루어져있다. 이 타원들의 특성들의 집합을 분석하면 해당 source를 설명(fit)하는 모델을 구할 수 있고 이를 통해 해당 source의 brightness profile을 분석할 수 있따. 즉, source를 무수히 많은 타원 Isophote의 합으로 나타내는 것이다.그리고 어떤 특성을 가진 Isophote의 합을 구하는 것인가에 따라 tuning이 된다. </p>
+
+				<h6>이 글에 나온 과정을 담은 분석 Code는 다음 Github 링크를 유심히 살펴보시면 얻을 수 있습니다. <a href="https://github.com/joey1170/2022Internship_GalaxyMorpohology/tree/master/Photutils_Ellipse_fitting">Link to Github code page</a></h6>
+
+				<h2 class="mb-3">0. Data Select</h2> 
+				<p>기존에 Morpheus로 진행하던 작업과 비교하기 위해서 Robertson+2022 논문에서 사용한 CEERS Survey에서 EGS field를 찍은 data를 사용했습니다. 이미지 내 상세한 위치를 하나 하나 제시하기는 힘듭니다. Dwarf/data에 참고하면 얻을 수 있습니다. 우선 해당 Data field에서 F115W/F150W/F200W를 사용하였습니다. </p>
+				<h2 class="mb-3">1. Image Align </h2>
+				<p>서로 같은 Field를 본 이미지들이라도 미세하기는 위치가 다르다. 고로, 이미지를 그냥 같은 Frame에서 분석하면 전혀 다른 위치를 찾게 된다. 따라서 이미지를 Align해줘서 같은 (x,y)에 대해서 같은 천체가 정렬되도록 해야한다. Astroalign package를 사용했으며 github 내에서 1_align.ipynb 에서 detail을 확인할 수 있다. 				</p>
+				<p>중요한 부분은 각 이미지에서 서로 대응 되는 부분을 package에서 입력해주는 것이 중요하다. 해당 점 목록을 빠르게 찾는 법은 Ds9을 이용해서 <br> (1) NewFrame을 통해 이미지들(이번 예시는 3개)을 한 frame에 하나씩 대응해서 놓는다. <br> (2) TileFrame을 통해 이미지를 한눈에 본다. <br> (3) pointer 옵션을 활용해서 각 이미지 내에 region을 그린다.+ Regeion-Centroid로 region 중심에 source 일치시키기 (이 떄, 각 이미지 내에서 region을 그린 순서는 모두 같아야 한다. 즉, F115W 이미지에서 source A를 1번째 region안에 들어있다면 F150 F200 이미지에서도 1번째 region 안에 그 이미지에 있는 sourceA가 들어가야 한다는 뜻이다.) <br> (4) 이미지 내에서 source를 충분히 많이 찾은 후 region 파일의 위치를 txt/reg 등 선호하는 파일로 저장한다. <br> (5) (4)에서 얻은 파일을 바탕으로 align.ipynb의 지시에 따라서 이미지 Align을 진행한다. <b>주의해야할 점은 굉장히 많은 source를 align에 사용해야하고, 많은 source를 align에 사용할 수록 결과는 더 정확해진다는 것이다.</b> 어차피 너무 적게 하면 결국 다시 align 해야 해서 시간 많이 잡아먹게 되어있으므로 처음에 할 때 성실하게 많은 시간을 투자해서 정확히 align 하는 것이 지름길이다. 최소 30개 이상은 한다.  </p>
+				
+				<h2 class="mb-3">2. Cutout 실시</h2> 
+				<p>Source의 중심이 이미지에 정중앙에 오게 정확하게 Cutout을 실시한다. 물론 모든 이미지 cutout의 크기는 일치해야 한다. cutout 이미지를 만들고나면, 이미지 용량도 작아서 이후에 분석하기 용이하다. 중요한 점이 있다면 눈으로 하는 것이 아니라 정확하게 source의 중심을 찾아서 그 지점이 이미지의 중앙에 오도록 cutout을 해야 한다는 것이다. 그렇게 해야 수월한 분석을 할 수 있다. 후술할 내용이지만 그렇기 때문에 source(은하 canddiate)의 중심을 찾는 것은 매우 중요하다. 물론 처음에는 은하의 중심을 정확히 찾기 어렵다. <b>이후 과정을 진행하면 source의 정확한 중심을 찾게 된다. 중심을 알아낸 이후에 다시 이 cutout단계로 돌아와서 정확한 중심을 바탕으로 새로 cutotut을 제대로 하게 된다. </b> </p>
+
+				<h2 class="mb-3">3. 이미지 Bkg 제거 </h2>
+				<p>정확한 이미지 내 은하의 fitting을 위해서는 Bkg 제거를 해야한다. Cutout한 이미지 내의 네 꼭짓점 부근에 해당하는 square 4개의 bkg 평균값을 구해서 그 값을 빼야 한다. 그럼 bkg가 제거된 이미지가 만들어진다. 그 square크기는 bkg를 포함하는 한 자유이며, 당연히 다른 source에 의해서 침범당하지 않도록 해야한다.  </p> 
+
+				<p style="text-align: center;">
+					<img src="../../images/internship-images/samp1.png" alt="" class="img-fluid">
+				</p>
+
+				<p>위 그림은 bkg subtracted 한 이미지가 어떻게 변화하는 지 보여주는 그림이다. 좌측부터 Data/Bkg-subtracted Data/Model/Residual</p>
+
+				<h2 class="mb-3">4. Ellipse Fitting </h2> 
+				<p>Fitting 할 때 주의해야할 </p>
+				<p>EllipseGeometry 에다가 초기 Isophote 초기값 정보를 넣어주면 더 잘 fitting 한다. 물로 찾기 매우 어렵다. 중심 지점, semimajoraxis 크기, positionangle(기울어진 방향) ellipiticity 를 넣을 수 있다. fitting할 때 해당 geometry에 Ellipsegeometry를 넣으면 되고 자세한 사항은 3번 Photutils Fitting spiral/ellipse 코드들을 참고하세요  이후에 .fit_image 를 통해 이미지 fit 할 때 fix_center 옵션으로 찾는 Isophote의 중심을 고정할 수 있다. 중심을 제대로 찾았다는 가정 하에서 fix_center=True를 해야 하지만 실제로 중심을 바로 제대로 찾을 수는 없다. fix_center=False를 통해 중심의 분포를 찾고 중심의 Median/Mode/Mean의 특성을 잘 고려해서 진짜 중심을 찾고 그 중심을 EllipseGeomtery 초기값으로 입력한 후 Fix_center=True로 다시 ellipe fitting 을 하면 된다. </p>
+				<h2 class="mb-3">5. Fitting Result </h2> 
+
+				<p style="text-align: center;">
+					<img src="../../images/internship-images/ellipse16boxplot.png" alt="" class="img-fluid">
+				</p>
+
+				Fitting해서 얻은 수많은 타원 Isophote들에서 필요한 정보들을 뽑을 수 있다. 가장 주요한 Ellipse의 모양의 변화는 이심률/PA 방향으로 모양의 변화를 볼 수 있다. 위 그림은 예시 이미지에서 세 파장 에서 얻은 정보들을 전부 한번에 그린 것이다. 전체 모양 파악이 쉽게 가능하다. 주의할 점은 에러바의 크기로 부터 의미가 있는 것 없는 것을 잘 찾아서 '유의미한 정보'에 해당하는 녀석들만 찾아서 거기의 결과만 분석에 써야 하는 것이다. 예를 들자면 위 그림에서는 에러바가 낮으면서, 일정한 값으로 찍히고 있는 sma가 중간 크기에 해당하는 부분이라고 볼 수 있다. 그래프로 나왔다고 다 의미가 잇는 것이 아니다. 양 사이드 에러바 큰거는 애초에 그 부분의 그래프를 해석하려고 보면 안된다. ellipse fitting의 오차가 큰 ellipse fitting으로 알아내기 어려운 부분의 데이터 인 것이다. 그냥 meanningless
+
+				Isophote 모양을 보면 아래 그림과 같은 모양이다. 
+
+				<p style="text-align: center;">
+					<img src="../../images/internship-images/ellipse1_isop_wav1.png" alt="" class="img-fluid">
+				</p>
+
+				참고로 만약 각 이미지 마다 은하의 중심을 Align해서 정확하게 찾아내지 못한다면 이렇게 isophote 로 Model로 뽑아내서 남은 Residual의 Core 부분이 은하의 중심에 있는 것이 아니라 이상한 곳으로 퍼지게 된다. 정확히 말하면 뭐 세 이미지 전부다 각자 따로 놀게 되는 것이다. 즉, 정확하게 은하 candidate 이미지 모두 align 해서 정확한 중심을 잡고 ellipse fitting을 했따면 이쁘게 residual 이미지에 남은 core 조차 다 같은 위치에 위치하게 된다. 
+
+				보통 이상하게 center 정렬하면 어긋나고 그게 과거의 나 
+				<p>하지만 제대로 align도 하고 이미지 중심도 잘 찾았는데 residual이 여러 개 나오거나 위치가 다르다면? 그것은 이제 Science 적인 분석을 할 수 있는 순간이 되는 것이다. </p>
+
+
+				<h2 class="mb-3">6. 다양한 특성 그래프 </h2> 
+
+				github 코드를 참고하면 Isophote에서 다른 데이터를 뽑아내서 다양하게 그릴 수 있다. 
+				예를 들면 은하가 중심으로부터 각도 부분에 따라서 밝기 차이가 나타나는가? 한 Isophote 내 밝기 차이는 어떤가 
+				<br>
+				그리고 Color는 어떤식으로 나타나는가? 
+				==> Color을 구하기 위해서는 각 필터별 이미지 별로 은하 중심 sma 에 따른 등급을 구해야 하는데 그 sma의 위치가 다 다르다. 그래서 적절한 interpolation을 통해 주어진 sma range 내에서 아예 등급 값을 구하고 이를 빼면 sma range 내에서 color를 구할 수 있다. 아래와 같은 그림을 그릴 수 있으며 역시 github 내 코드 참고하면 된다. 
+
+				<p style="text-align: center;">
+					<img src="../../images/internship-images/ellipse1colorindex.png" alt="" class="img-fluid">
+				</p>
+
+
+				<h2 class="mb-3">7. Sersic-Fitting></h2> 
+				<p>
+					이제 이렇게 얻은 타원 Isophote의 sma에 따른 등급 data에서 sersic -fitting을 하면 된다. </p>
+
+					<b> fitting 시 주의해야할 사항은 다음과 같다. </b>
+
+					<h5> 어떠한 유효한 범위에서 Sersic Fitting을 할 수 있는지 </h5>
+
+					- Sersic fitting을 할 때 그 이미지의 FWHM 보다 더 좁은 영역은 그 은하의 특징이라 볼수 없다. 중심에서 FWHM 보다 일단 더 멀리 떨어져있는 부분부터 시작해야 일단은 그 은하의 외곽 부분의 광도 변화를 잘 나타낸다고 할 수 있다. FWHM 안쪽은 그냥 중심이 갖는 PSF에 묻혔다고 볼 수 있따. 
+
+
+					<h5> Sersic Fitting을 한 번에 되지 않는다면 / 몇 개의 범위로 나누어야 제대로 fit 할 수 있는지 --> 그게 어떤 의미인지 </h5>
+					- 모든 은하의 외곽 부분이 당연히 맘편하게 scipy의 curve_fit을 할 때 한번에 잘 되지 않는다. 애초에 한 가지 함수로 fitting을 다할 수 없는 경우도 많다. 그럴 경우 특정 부분으로 범위를 나누너서 fit을 해야 되기도 한다. 그 범위를 나누게 되는 근거는 전체 데이터를 찍은 그래프 상의 특징에서 찾을 수도 있고 / 천체 이미지 에서 찾을 수도 있다. 
+
+					하지만 중요한 것은 fitting 은 무조건 주어진 데이터를 다 설명하게 그래프 찾는게 아니라 '유효한 데이터'셋을 찾고 (데이터의 신뢰도와 의미를 모두 가진 상태에서) 그 데이터를 잘 설명하는 모델을 뽑아내느 것이다. 즉, 당연히 특정부분만 sersic fit으로 설명할 수 있으면 그 부분을 SErsic fit으로 설명하면 된다. 
+
+					또한 여러개의 Componeent를 가진 것에 대한 근거가 되기도 한다. 은하의 외곽 부분이 여러 범위에 따라서 각기 다른 sersic index를 가진 sersic fitting이 된다면 은하가 각 부분마다 다양한 component를 가지거나 다양한 component의 합이라고 볼 수 있따.
+					<h5> fitting은 항성 전천에서 배웟뜻이 신중하게 </h5>
+					- fitting은 결과가 나왔따고 끝이 아니라 parameter를 몇 개를 activate 했는디 / paraemter 초기값은 어떻게 결정했으며, local limit에 빠져서 제대로 해를 못구한 것은 아닌지, 더 좋은 초기값은 없는 ㅣ지 / param 범위는 어떻게 설정했으며 param 범위에 의해 구한 값이 제한된 상황은 아닌지 다양하게 확인해야 한다. 
+
+
+
+
+
+				<h2 class="mb-3">기타 Tip / 지적사항 </h2> 
+				
+				- 가장 중요한 거 : 교수님 자주 찾아뵈어서 많이 물어보고 최대한 많이 괴롭히기 + 사수도 괴롭히기 
+				- 항상 이미지에서 뽑은 데이터를 뽑아 얻은 결과를 분석할 떄 (그래프를 볼때 ) 옆에 이미지를 두고 그래프 내 특징/의미있는 부분과 해당 영역이 이미지/데이터에서 어떠한 특징을 가지는지 Cross Check 하면서 따라가야 한다. 발표자료에서도 이미지는 무조건 넣어서 잘 확인할 수 있게 해야 한다. 그러면서 분석/공부 해야 한다. 즉, 이미지 보면서 생각 
+				
+				- 단순히 그래프 그렸다고 끝이 아니라 그래프를 그리고 나서 특징/특이점이 있으면 그 부분이 이미지 상에서는 어떤지 데이터  상에서는 어떤지 왜그런지 생각을 많이 할 것 
+
+				- 발표자료에서는 듣는이가 바로 이해할 수 있게 정확한 물리량 값을 작성하고 그 특징을 서술해야 한다. 예를 들자면, 그냥 어떤 Isophote의 sma가 Q2라고 적으면 안되고, sma가 20인데 Q2라고 설명해야 한다. 그리고 한 종류의 물리량에서 다양한 단위가 혼재할 때, 예를 들면 이미지 내 길이는 pixel/arcsec가 있다. 하나로 통일하던가, 하나로 통일할 수 없다면 발표 중 혹은 분석 중 언제든지 바로 반대쪽으로 변환할 수 있게 변환할 수 잇는 중간단계 계산값 등을 미리 서술해놓어야 한다. 
+
+				- Surfacebrightneess ./ Intensity / Flux 의 차이를 이해한다. 
+				이미지 내 한 픽셀은 SB 근데 이거 다 모여서 한 물체는 Mag  밝기가 된느 것이다. Flux 
+				단위  제대로 적어라 SB 는 Mag 단위가 아니다. </p>
+
+				<h2 class="mb-3">나선 은하 피팅!</h2> 
+				나선은하는 타원은하랑 완전히 동일하게 진행하면 된다. 그냥 다른 source 하나이기 때문이다. 다만, Ellispe fitting 자체가 Ellipse 은하에 대해서 잘 작동하는 이론적 배경을 가진 fitting이기 때문에 타원은하와 달리 나선은하는 fitting에 성공하도록 하는 기 parameter value를 찾기가 매우 힘들다. 거의 찍어서 찾아가는 영역이다.  
+
+				위와 같은 과정 마무리를 잘 이해할 수 있도록 도와주는 발표자료 pdf를 첨부 
+
+
+
+
+
+				<p style="text-align:center;"><<iframe src="https://drive.google.com/file/d/1_igb4YVWuG2O1zTa7HM6dp5dVqocUJog/preview" width="640" height="480" allow="autoplay"></iframe></p>
+
+			  
+			  <div class="about-author d-flex p-4 bg-light">
+				<div class="bio mr-4">
+				  <img src="../../images/person_1.jpg" alt="Image placeholder" class="img-fluid mb-4">
+				</div>
+				<div class="desc">
+				  <h3>George Woddn</h3>
+				  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div class="container">
+		<script src="https://utteranc.es/client.js"
+		repo="joey1170/joey1170.github.io"
+		issue-term="pathname"
+		theme="github-light"
+		crossorigin="anonymous"
+		async>
+		</script>
+	</div>
+
+
+	<footer class="ftco-footer ftco-section">
+		<div class="container">
+		  <div class="row mb-5">
+			<div class="col-md">
+			  <div class="ftco-footer-widget mb-4">
+				<h2 class="ftco-heading-2">About</h2>
+				<p>Astronomer dreams as if live forever, lives as if die today. </p>
+				<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+				  <li class="ftco-animate"><a href="#"><span class="icon-github"></span></a></li>
+				  <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+				  <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+				  <li class="ftco-animate"><a href="#"><span class="icon-linkedin"></span></a></li>
+  
+				</ul>
+			  </div>
+			</div>
+			<div class="col-md">
+			  <div class="ftco-footer-widget mb-4 ml-md-4">
+				<h2 class="ftco-heading-2">Links</h2>
+				<ul class="list-unstyled">
+				  <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Home</a></li>
+				  <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>About</a></li>
+				  <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Services</a></li>
+				  <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Projects</a></li>
+				  <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Contact</a></li>
+				</ul>
+			  </div>
+			</div>
+			<div class="col-md">
+			   <div class="ftco-footer-widget mb-4">
+				<h2 class="ftco-heading-2">Interests</h2>
+				<ul class="list-unstyled">
+				  <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Web Design</a></li>
+				  <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Web Development</a></li>
+				  <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Business Strategy</a></li>
+				  <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Data Analysis</a></li>
+				  <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Graphic Design</a></li>
+				</ul>
+			  </div>
+			</div>
+			<div class="col-md">
+			  <div class="ftco-footer-widget mb-4">
+				  <h2 class="ftco-heading-2">Have a Questions?</h2>
+				  <div class="block-23 mb-3">
+					<ul>
+					  <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
+					  <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+					  <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+					</ul>
+				  </div>
+			  </div>
+			</div>
+		  </div>
+		  <div class="row">
+			<div class="col-md-12 text-center">
+  
+			  <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+	Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+	<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+			</div>
+		  </div>
+		</div>
+	  </footer>
+
+
+
+	<!-- loader -->
+	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+			<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+				stroke="#F96D00" />
+		</svg></div>
+
+
+	<script src="../../js/jquery.min.js"></script>
+	<script src="../../js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="../../js/popper.min.js"></script>
+	<script src="../../js/bootstrap.min.js"></script>
+	<script src="../../js/jquery.easing.1.3.js"></script>
+	<script src="../../js/jquery.waypoints.min.js"></script>
+	<script src="../../js/jquery.stellar.min.js"></script>
+	<script src="../../js/owl.carousel.min.js"></script>
+	<script src="../../js/jquery.magnific-popup.min.js"></script>
+	<script src="../../js/aos.js"></script>
+	<script src="../../js/jquery.animateNumber.min.js"></script>
+	<script src="../../js/scrollax.min.js"></script>
+
+	<script src="../../js/main.js"></script>
+
+</body>
+
+</html>
